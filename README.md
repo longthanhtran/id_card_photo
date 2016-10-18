@@ -1,4 +1,4 @@
-# Small project to re-implement 'legendary' tool created by my idol Tho Nguyen
+# Small project to re-implement 'legendary' tool created by my master, Tho Nguyen
 
 ## Getting start
 - run `bundle` to install require libs
