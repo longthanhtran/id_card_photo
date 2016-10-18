@@ -1,4 +1,4 @@
-require 'RMagick'
+require 'rmagick'
 
 class ImageResizer
   attr_accessor :swidth, :sheight, :width, :height, :space
