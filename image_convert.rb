@@ -19,6 +19,16 @@ class ImageConverter < Thor
     resizer = ImageResizer.new
     puts resizer.create_output_filename(photos).to_s
   end
+
+  desc 'mass_merge', 'Merge all photos'
+  def mass_merge(folder)
+    photos = Dir["#{folder}/*"]
+    abort('No photo found') if photos.empty?
+    resizer = ImageResizer.new
+
+    resizer.mass_merge(photos)
+    puts "Done"
+  end
 end
 
 ImageConverter.start(ARGV)
