@@ -22,6 +22,11 @@ RSpec.describe 'Filer lib' do
 
   it 'get list of photo files' do
     filer = Filer.new
+    Dir = double()
+    expect(Dir)
+      .to receive(:[])
+      .with('photos/*')
+      .and_return(['photos/1.jpg', 'photos/2.png'])
     photo_dir = 'photos'
 
     expected = [photo_dir + '/1.jpg', photo_dir + '/2.png']
