@@ -26,9 +26,9 @@ class ImageResizer
 
   def mass_merge(photos)
     photos.each_slice(2) do |t|
-      filename = t[0].split('/').last.split('.').first + '-' +
-                 t[1].split('/').last.split('.').first +
-                 '-print.jpg'
+      filename = t.reduce('') do |acc, nxt|
+        acc + '-' + nxt.split('/').last.split('.').first
+      end + '.jpg'
       merge_two_images(t, filename)
       puts filename
     end
