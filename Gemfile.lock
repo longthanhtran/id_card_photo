@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.2.5)
+    fakefs (0.9.3)
     rmagick (2.16.0)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
@@ -22,6 +23,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  fakefs
   rmagick
   rspec
   thor

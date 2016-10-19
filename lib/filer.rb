@@ -6,6 +6,6 @@ class Filer
   end
 
   def get_photo_list(photo_dir)
-    Dir[photo_dir.to_s + '/*']
+    Dir.glob(photo_dir.to_s + '/*')
   end
 end

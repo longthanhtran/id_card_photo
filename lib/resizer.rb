@@ -28,7 +28,7 @@ class ImageResizer
     photos.each_slice(2) do |t|
       filename = t.reduce('') do |acc, nxt|
         acc + '-' + nxt.split('/').last.split('.').first
-      end + '.jpg'
+      end + '-print.jpg' if t.length == 2
       merge_two_images(t, filename)
       puts filename
     end

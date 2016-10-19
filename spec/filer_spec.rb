@@ -1,6 +1,11 @@
+require 'pp'
+require 'ap'
+require 'fakefs/spec_helpers'
 require_relative '../lib/filer.rb'
 
 RSpec.describe 'Filer lib' do
+  include FakeFS::SpecHelpers
+
   it 'can init object properly' do
     filer = Filer.new
     expect(filer).to be_instance_of(Filer)
@@ -22,15 +27,16 @@ RSpec.describe 'Filer lib' do
 
   it 'get list of photo files' do
     filer = Filer.new
-    Dir = double()
-    expect(Dir)
-      .to receive(:[])
-      .with('photos/*')
-      .and_return(['photos/1.jpg', 'photos/2.png'])
-    photo_dir = 'photos'
+    photo_dir = '/photos/'
 
-    expected = [photo_dir + '/1.jpg', photo_dir + '/2.png']
+    Dir.mkdir(photo_dir)
+    2.times do |photo|
+      FileUtils.touch(photo_dir + photo.to_s + '.jpg')
+    end
 
-    expect(filer.get_photo_list(photo_dir)).to eq(expected)
+    expected = ['/photos/0.jpg', '/photos/1.jpg']
+    result = filer.get_photo_list(photo_dir)
+
+    expect(result).to eq(expected)
   end
 end
