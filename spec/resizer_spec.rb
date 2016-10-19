@@ -29,10 +29,4 @@ RSpec.describe 'ImageResizer lib' do
 
     expect(img).to be_instance_of(expected)
   end
-
-  it 'can merge two photos' do
-    skip 'I need to think ...'
-    portrait = Resizer.new
-    portrait.create_image
-  end
 end
